@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+	<script type="text/javascript" src="./inc/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./inc/math.min.js"></script>
+
+	<script type="text/javascript" src="./inc/main.js"></script>
+	<script type="text/javascript" src="./inc/sigmaXX.js"></script>
+	<script type="text/javascript" src="./inc/sigmaYY.js"></script>
+	<script type="text/javascript" src="./inc/sigmaXY.js"></script>
+	<link rel="stylesheet" type="text/css" href="./inc/style.css">
+    </head>
+    <body>
+	 <form>
+	     <input id="rangeUserSigXX" class="rangeUser" type="range" min="-1" max="1" step="0.01">Sig XX: <div id="displaySigXX" class="displayValue" ></div><br />
+	     <input id="rangeUserSigYY" class="rangeUser" type="range" min="-1" max="1" step="0.01">Sig YY: <div id="displaySigYY" class="displayValue" ></div><br />
+	     <input id="rangeUserSigXY" class="rangeUser" type="range" min="-1" max="1" step="0.01">Sig XY: <div id="displaySigXY" class="displayValue" ></div><br /><br />
+
+
+	     <div id="debugResult">Debug :<br /> </div>
+	 </form>
+    </body>
+</html>
