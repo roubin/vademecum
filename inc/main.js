@@ -50,6 +50,7 @@ $(document).ready(function(){
 	$("#displaySigYY").text(sigmaYY[imin]);
 	$("#displaySigXY").text(sigmaXY[imin]);
 
+	$("#imgMicroCell").attr('src', './img/'+imin+'.png');
 
     });    
 });
