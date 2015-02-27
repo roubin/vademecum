@@ -10,6 +10,7 @@
 	<script type="text/javascript" src="./inc/sigmaYY.js"></script>
 	<script type="text/javascript" src="./inc/sigmaXY.js"></script>
 	<link rel="stylesheet" type="text/css" href="./inc/style.css">
+	<link rel="stylesheet" type="text/css" href="./inc/font-awesome-4.3.0/css/font-awesome.min.css">
     </head>
     <body>
       <form>
@@ -19,6 +20,19 @@
 	  <input id="userSubmit" type="submit" value="Submit Values" ><br /><br />
       </form>
       <!--<div id="debugResult">Debug :</div> -->
-      <img id="imgMicroCell" src="img/20.png">
+
+      <div class="table">
+	  <table style="width:500px">
+	      <tr>
+		  <td class="CC"><img id="imgMicroCell" src="img/20.png"></td>
+		  <td class="BC"><i id="arrow-sigxx-right"></i></td>
+	      </tr>
+	      <tr>
+		  <td class="BB"><i id="arrow-sigyy-down"></i><i id="arrow-sigxy-left"></i></td>
+		  <td class="AB"></td>
+	      </tr>
+	  </table>
+      </div>
+       
     </body>
 </html>

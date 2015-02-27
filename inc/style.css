@@ -1,3 +1,38 @@
 .displayValue {
     display:inline;
 }
+
+div.container {
+    text-align:center;
+    height:400px;
+    display:inline-block;
+}
+
+
+#imgMicroCell {
+    display:inline-block;
+    width:400px;
+    height:400px;
+}
+
+
+
+td, img, div, table, tr, i {
+    margin:0px;
+    padding:0px;
+}
+
+.table {
+    display:block;
+    text-align:center;
+}
+
+td.BC {
+    height:400px;
+    width:100px;
+}
+
+td.CC {
+    height:400px;
+    width:400px;
+}
