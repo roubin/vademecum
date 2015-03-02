@@ -1,7 +1,9 @@
 $(document).ready(function(){
-    var sigXX = 1; $("#rangeUserSigXX").val(sigXX); var sigYY = 0; $("#rangeUserSigYY").val(sigYY); var sigXY = 0; $("#rangeUserSigXY").val(sigXY);    
-    var sigNorm = math.norm([sigXX, sigYY, sigXY], 2);
-    var sigXXNorm=sigXX/sigNorm; var sigYYNorm=sigYY/sigNorm; var sigXYNorm=sigXY/sigNorm;  
+    var sigXX = 1;
+    var sigYY = 0;
+    var sigXY = 0;
+    display_from_submit(sigXX, sigYY, sigXY);
+    
     $(".rangeUser").change(function(){
 	if     ($(this).attr("id") == "rangeUserSigXX") { sigXX=parseFloat($(this).val()); }
 	else if($(this).attr("id") == "rangeUserSigYY") { sigYY=parseFloat($(this).val()); }
@@ -11,15 +13,22 @@ $(document).ready(function(){
     
     $( "#userSubmit" ).click(function( event ) {
 	event.preventDefault();
-	var sigXX = math.number($("#displaySigXX").val()); $("#rangeUserSigXX").val(sigXX);
-	var sigYY = math.number($("#displaySigYY").val()); $("#rangeUserSigYY").val(sigYY);
-	var sigXY = math.number($("#displaySigXY").val()); $("#rangeUserSigXY").val(sigXY);
+	var sigXX = math.number($("#displaySigXX").val());
+	var sigYY = math.number($("#displaySigYY").val());
+	var sigXY = math.number($("#displaySigXY").val());
 	display_from_submit(sigXX, sigYY, sigXY);
     });
 });
 
 
 function display_from_submit(sigXX, sigYY, sigXY) {
+    $("#rangeUserSigXX").val(sigXX);
+    $("#rangeUserSigXY").val(sigXY);
+    $("#rangeUserSigYY").val(sigYY);
+    $("#displaySigXX").val(sigXX);
+    $("#displaySigXY").val(sigXY);
+    $("#displaySigYY").val(sigYY);
+
     var sigNorm = math.norm([sigXX, sigYY, sigXY], 2);
     var sign = math.sign(sigXY); if(math.abs(sign)<0.00001) { sign=1.0; }
     var sigXXNorm=sign*sigXX/sigNorm; var sigYYNorm=sign*sigYY/sigNorm; var sigXYNorm=sign*sigXY/sigNorm;
@@ -47,6 +56,8 @@ function display_from_submit(sigXX, sigYY, sigXY) {
     $("#displaySigXY").val(sigXY.toFixed(3));
     $("#imgMicroCell").attr('src', './img/'+imin_str+'.png');
 
+    var arrowSize=50;
+    
     if(sigXX<0) {
 	$("#arrow-sigxx-right").attr('class', 'fa fa-long-arrow-right fa-rotate-180');
 	$("#arrow-sigxx-left").attr('class', 'fa fa-long-arrow-left fa-rotate-180');
@@ -54,8 +65,8 @@ function display_from_submit(sigXX, sigYY, sigXY) {
 	$("#arrow-sigxx-right").attr('class', 'fa fa-long-arrow-right ');
 	$("#arrow-sigxx-left").attr('class',  'fa fa-long-arrow-left ');
     }
-    $("#arrow-sigxx-right").css({'font-size':math.norm(sigXX)*100.0});
-    $("#arrow-sigxx-left").css({'font-size':math.norm(sigXX)*100.0});
+    $("#arrow-sigxx-right").css({'font-size':math.norm(sigXX)*arrowSize});
+    $("#arrow-sigxx-left").css({'font-size':math.norm(sigXX)*arrowSize});
 
     if(sigYY<0) {
 	$("#arrow-sigyy-up").attr('class', 'fa fa-long-arrow-up fa-rotate-180');
@@ -65,19 +76,25 @@ function display_from_submit(sigXX, sigYY, sigXY) {
 	$("#arrow-sigyy-down").attr('class',  'fa fa-long-arrow-down');
     }
 
-    $("#arrow-sigyy-up").css({'font-size':math.norm(sigYY)*100.0});
-    $("#arrow-sigyy-down").css({'font-size':math.norm(sigYY)*100.0});
+    $("#arrow-sigyy-up").css({'font-size':math.norm(sigYY)*arrowSize});
+    $("#arrow-sigyy-down").css({'font-size':math.norm(sigYY)*arrowSize});
 
     
     if(sigXY<0) {
 	$("#arrow-sigxy-right").attr('class', 'fa fa-long-arrow-right fa-rotate-180');
 	$("#arrow-sigxy-left").attr('class', 'fa fa-long-arrow-left fa-rotate-180');
+	$("#arrow-sigxy-up").attr('class', 'fa fa-long-arrow-up fa-rotate-180');
+	$("#arrow-sigxy-down").attr('class', 'fa fa-long-arrow-down fa-rotate-180');
     } else {
 	$("#arrow-sigxy-right").attr('class', 'fa fa-long-arrow-right ');
 	$("#arrow-sigxy-left").attr('class',  'fa fa-long-arrow-left ');
+	$("#arrow-sigxy-up").attr('class', 'fa fa-long-arrow-up ');
+	$("#arrow-sigxy-down").attr('class',  'fa fa-long-arrow-down ');
     }
-    $("#arrow-sigxy-right").css({'font-size':math.norm(sigXY)*100.0});
-    $("#arrow-sigxy-left").css({'font-size':math.norm(sigXY)*100.0});
+    $("#arrow-sigxy-right").css({'font-size':math.norm(sigXY)*arrowSize});
+    $("#arrow-sigxy-left").css({'font-size':math.norm(sigXY)*arrowSize});
+    $("#arrow-sigxy-up").css({'font-size':math.norm(sigXY)*arrowSize});
+    $("#arrow-sigxy-down").css({'font-size':math.norm(sigXY)*arrowSize});
 
 
 }

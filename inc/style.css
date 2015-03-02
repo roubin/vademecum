@@ -22,17 +22,19 @@ td, img, div, table, tr, i {
     padding:0px;
 }
 
-.table {
-    display:block;
+table.microcell {
+    margin:0 auto;
+    width:500px;
     text-align:center;
 }
 
-td.BC {
+td.BB {
     height:400px;
-    width:100px;
+    width:400px;
 }
-
-td.CC {
+td.BS {
     height:400px;
+}
+td.SB {
     width:400px;
 }
