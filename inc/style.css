@@ -38,3 +38,55 @@ td.BS {
 td.SB {
     width:400px;
 }
+
+.click {
+    cursor: pointer;
+    display: inline;
+}
+
+
+.btn {
+    display: inline-block;
+    color: #666;
+    background-color: #eee;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-bottom-width: 3px;
+}
+
+div.btn:hover {
+    background-color: #e3e3e3;
+    border-color: rgba(0,0,0,0.5);
+}
+	
+div.btn:active {
+    background-color: #CCC;
+    border-color: rgba(0,0,0,0.9);
+}
+
+
+input[type="text"] {
+    text-align:center;
+    color:#666;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-bottom-width: 3px;
+}
+input[type="text"]:focus,
+input[type="text"].focus {
+    box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+    background-color: #CCC;
+    border: solid 1px #fff;
+    box-shadow: inset 1px 1px 2px 0 #707070;
+    transition: box-shadow 0.3s;
+}

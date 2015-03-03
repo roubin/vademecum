@@ -18,6 +18,31 @@ $(document).ready(function(){
 	var sigXY = math.number($("#displaySigXY").val());
 	display_from_submit(sigXX, sigYY, sigXY);
     });
+
+    $("#movieSigXX").click(function( event ) {
+	event.preventDefault();	
+	var sigXX = math.number(-1);
+	var sigYY = math.number($("#displaySigYY").val());
+	var sigXY = math.number($("#displaySigXY").val());
+	display_movie(sigXX, sigYY, sigXY, 0);
+    });
+
+    $("#movieSigYY").click(function( event ) {
+	event.preventDefault();	
+	var sigYY = math.number(-1);
+	var sigXX = math.number($("#displaySigXX").val());
+	var sigXY = math.number($("#displaySigXY").val());
+	display_movie(sigXX, sigYY, sigXY, 1);
+    });
+
+    $("#movieSigXY").click(function( event ) {
+	event.preventDefault();	
+	var sigXY = math.number(-1);
+	var sigYY = math.number($("#displaySigYY").val());
+	var sigXX = math.number($("#displaySigXX").val());
+	display_movie(sigXX, sigYY, sigXY, 2);
+    });
+        
 });
 
 
@@ -96,5 +121,22 @@ function display_from_submit(sigXX, sigYY, sigXY) {
     $("#arrow-sigxy-up").css({'font-size':math.norm(sigXY)*arrowSize});
     $("#arrow-sigxy-down").css({'font-size':math.norm(sigXY)*arrowSize});
 
-
 }
+
+
+function display_movie(sigXX, sigYY, sigXY, comp) {
+    var imax=math.number(50); var i=math.number(0);
+    var timerMovie = setInterval(function () {
+	display_from_submit(sigXX, sigYY, sigXY);
+	switch(comp) {
+	case 0:  sigXX = sigXX+math.number(2.0/imax); break;
+	case 1:  sigYY = sigYY+math.number(2.0/imax); break;
+	case 2:  sigXY = sigXY+math.number(2.0/imax); break;	   
+	default: sigXX = sigXX+math.number(2.0/imax); } 
+	i=i+1;
+	if(i>imax) { clearInterval(timerMovie); }
+	$(".pauseMovie").click(function() {
+	    clearInterval(timerMovie);
+	});
+    }, 1000);
+};
