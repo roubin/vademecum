@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var sigXX = 1;
-    var sigYY = 0;
-    var sigXY = 0;
+    var sigYY = 0.2;
+    var sigXY = 0.3;
     display_from_submit(sigXX, sigYY, sigXY);
     
     $(".rangeUser").change(function(){
@@ -81,45 +81,53 @@ function display_from_submit(sigXX, sigYY, sigXY) {
     $("#displaySigXY").val(sigXY.toFixed(3));
     $("#imgMicroCell").attr('src', './img/'+imin_str+'.png');
 
-    var arrowSize=50;
+    var arrowSize=200;
     
     if(sigXX<0) {
-	$("#arrow-sigxx-right").attr('class', 'fa fa-long-arrow-right fa-rotate-180');
-	$("#arrow-sigxx-left").attr('class', 'fa fa-long-arrow-left fa-rotate-180');
+	$("#arrow-sigxx-right").attr('src', './inc/arrow-left.png');
+	$("#arrow-sigxx-left").attr('src', './inc/arrow-right.png');
     } else {
-	$("#arrow-sigxx-right").attr('class', 'fa fa-long-arrow-right ');
-	$("#arrow-sigxx-left").attr('class',  'fa fa-long-arrow-left ');
+	$("#arrow-sigxx-right").attr('src', './inc/arrow-right.png');
+	$("#arrow-sigxx-left").attr('src', './inc/arrow-left.png');
     }
-    $("#arrow-sigxx-right").css({'font-size':math.norm(sigXX)*arrowSize});
-    $("#arrow-sigxx-left").css({'font-size':math.norm(sigXX)*arrowSize});
+    $("#arrow-sigxx-right").attr('width', math.norm(sigXX)*arrowSize);
+    $("#arrow-sigxx-right").parent().css({'text-align':'left'});    
+    $("#arrow-sigxx-left").attr('width', math.norm(sigXX)*arrowSize);
+    $("#arrow-sigxx-left").parent().css({'text-align':'right'});    
 
+    
     if(sigYY<0) {
-	$("#arrow-sigyy-up").attr('class', 'fa fa-long-arrow-up fa-rotate-180');
-	$("#arrow-sigyy-down").attr('class', 'fa fa-long-arrow-down fa-rotate-180');
+	$("#arrow-sigyy-up").attr('src', './inc/arrow-down.png');
+	$("#arrow-sigyy-down").attr('src', './inc/arrow-up.png');	
     } else {
-	$("#arrow-sigyy-up").attr('class', 'fa fa-long-arrow-up');
-	$("#arrow-sigyy-down").attr('class',  'fa fa-long-arrow-down');
+	$("#arrow-sigyy-up").attr('src', './inc/arrow-up.png');
+	$("#arrow-sigyy-down").attr('src', './inc/arrow-down.png');
     }
-
-    $("#arrow-sigyy-up").css({'font-size':math.norm(sigYY)*arrowSize});
-    $("#arrow-sigyy-down").css({'font-size':math.norm(sigYY)*arrowSize});
+    $("#arrow-sigyy-up").attr('height', math.norm(sigYY)*arrowSize);
+    $("#arrow-sigyy-up").parent().css({'vertical-align':'bottom'});    
+    $("#arrow-sigyy-down").attr('height', math.norm(sigYY)*arrowSize);
+    $("#arrow-sigyy-down").parent().css({'vertical-align':'top'});    
 
     
     if(sigXY<0) {
-	$("#arrow-sigxy-right").attr('class', 'fa fa-long-arrow-right fa-rotate-180');
-	$("#arrow-sigxy-left").attr('class', 'fa fa-long-arrow-left fa-rotate-180');
-	$("#arrow-sigxy-up").attr('class', 'fa fa-long-arrow-up fa-rotate-180');
-	$("#arrow-sigxy-down").attr('class', 'fa fa-long-arrow-down fa-rotate-180');
+	$("#arrow-sigxy-right").attr('src', './inc/arrow-left.png');
+	$("#arrow-sigxy-left").attr('src', './inc/arrow-right.png');
+	$("#arrow-sigxy-up").attr('src', './inc/arrow-down.png');
+	$("#arrow-sigxy-down").attr('src', './inc/arrow-up.png');	
     } else {
-	$("#arrow-sigxy-right").attr('class', 'fa fa-long-arrow-right ');
-	$("#arrow-sigxy-left").attr('class',  'fa fa-long-arrow-left ');
-	$("#arrow-sigxy-up").attr('class', 'fa fa-long-arrow-up ');
-	$("#arrow-sigxy-down").attr('class',  'fa fa-long-arrow-down ');
+	$("#arrow-sigxy-right").attr('src', './inc/arrow-right.png');
+	$("#arrow-sigxy-left").attr('src', './inc/arrow-left.png');
+	$("#arrow-sigxy-up").attr('src', './inc/arrow-up.png');
+	$("#arrow-sigxy-down").attr('src', './inc/arrow-down.png');
     }
-    $("#arrow-sigxy-right").css({'font-size':math.norm(sigXY)*arrowSize});
-    $("#arrow-sigxy-left").css({'font-size':math.norm(sigXY)*arrowSize});
-    $("#arrow-sigxy-up").css({'font-size':math.norm(sigXY)*arrowSize});
-    $("#arrow-sigxy-down").css({'font-size':math.norm(sigXY)*arrowSize});
+    $("#arrow-sigxy-right").attr('width', math.norm(sigXY)*arrowSize);
+    $("#arrow-sigxy-right").parent().css({'height':String(0.4*math.norm(sigXY)*arrowSize)+'px'});
+    $("#arrow-sigxy-left").attr('width', math.norm(sigXY)*arrowSize);
+    $("#arrow-sigxy-left").parent().css({'height':String(0.4*math.norm(sigXY)*arrowSize)+'px'});
+    $("#arrow-sigxy-up").attr('height', math.norm(sigXY)*arrowSize);
+    $("#arrow-sigxy-up").parent().css({'width':String(0.4*math.norm(sigXY)*arrowSize)+'px'});
+    $("#arrow-sigxy-down").attr('height', math.norm(sigXY)*arrowSize);
+    $("#arrow-sigxy-down").parent().css({'width':String(0.4*math.norm(sigXY)*arrowSize)+'px'});
 
 }
 

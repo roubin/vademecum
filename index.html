@@ -13,50 +13,50 @@
 	<link rel="stylesheet" type="text/css" href="./inc/font-awesome-4.3.0/css/font-awesome.min.css">
     </head>
     <body>
-      <form>
-	  <input id="rangeUserSigXX" class="rangeUser" type="range" min="-1" max="1" step="0.01">Sig XX: <input id="displaySigXX" class="displayValue" type="text" size="5" value="1.000"> <div id="movieSigXX" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div><br />
-	  <input id="rangeUserSigYY" class="rangeUser" type="range" min="-1" max="1" step="0.01">Sig YY: <input id="displaySigYY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigYY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div><br />
-	  <input id="rangeUserSigXY" class="rangeUser" type="range" min="-1" max="1" step="0.01">Sig XY: <input id="displaySigXY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigXY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div><br /><br />
+      <form id="controls">
+	  <div class="text">Sigma XX<br /><input id="rangeUserSigXX" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigXX" class="displayValue" type="text" size="5" value="1.000"> <div id="movieSigXX" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div><br /></div><br />
+	  <div class="text">Sigma YY<br /><input id="rangeUserSigYY" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigYY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigYY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div><br />
+	  <div class="text">Sigma XY<br /><input id="rangeUserSigXY" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigXY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigXY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div><br />
 	  <div id="userSubmit" class="click btn" >Submit Stress Values</div><br /><br />
       </form>
       <!--<div id="debugResult">Debug :</div> -->
 
       <div>
-	  <table class="microcell">
+	  <table class="MicroCell">
 	      <tr>
-		  <td class="SS"></td>
-		  <td class="SS"></td>
-		  <td class="SB"><i id="arrow-sigyy-up"></i></td>
-		  <td class="SS"></td>
-		  <td class="SS"></td>
+		  <td></td>
+		  <td></td>
+		  <td><img id="arrow-sigyy-up"></td>
+		  <td></td>
+		  <td></td>
 	      </tr>
 	      <tr>
-		  <td class="SS"></td>
-		  <td class="SS"></td>
-		  <td class="SB"><i id="arrow-sigxy-right"></i></td>
-		  <td class="SS"></td>
-		  <td class="SS"></td>
+		  <td></td>
+		  <td></td>
+		  <td><img id="arrow-sigxy-right"></td>
+		  <td></td>
+		  <td></td>
 	      </tr>
 	      <tr>
-		  <td class="BS"><i id="arrow-sigxx-left"></i></td>
-		  <td class="BS"><i id="arrow-sigxy-down"></i></td>
+		  <td class="BS"><img id="arrow-sigxx-left"></td>
+		  <td class="BS"><img id="arrow-sigxy-down"></td>
 		  <td class="BB"><img id="imgMicroCell" src="img/20.png"></td>
-		  <td class="BS"><i id="arrow-sigxy-up"></i></td>
-		  <td class="BS"><i id="arrow-sigxx-right"></i></td>
+		  <td class="BS"><img id="arrow-sigxy-up"></td>
+		  <td class="BS"><img id="arrow-sigxx-right"></td>
 	      </tr>
 	      <tr>
-		  <td class="SS"></td>
-		  <td class="SS"></td>
-		  <td class="SB"><i id="arrow-sigxy-left"></i></td>
-		  <td class="SS"></td>
-		  <td class="SS"></td>
+		  <td></td>
+		  <td></td>
+		  <td><img id="arrow-sigxy-left"></td>
+		  <td></td>
+		  <td></td>
 	      </tr>
 	      <tr>
-		  <td class="SS"></td>
-		  <td class="SS"></td>
-		  <td class="SB"><i id="arrow-sigyy-down"></i></td>
-		  <td class="SS"></td>
-		  <td class="SS"></td>
+		  <td></td>
+		  <td></td>
+		  <td><img id="arrow-sigyy-down"></td>
+		  <td></td>
+		  <td></td>
 	      </tr>
 	  </table>
       </div>
