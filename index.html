@@ -9,57 +9,96 @@
 	<script type="text/javascript" src="./inc/sigmaXX.js"></script>
 	<script type="text/javascript" src="./inc/sigmaYY.js"></script>
 	<script type="text/javascript" src="./inc/sigmaXY.js"></script>
+	<script type="text/javascript" src="./inc/Ch11.js"></script>
+	<script type="text/javascript" src="./inc/Ch12.js"></script>
+	<script type="text/javascript" src="./inc/Ch13.js"></script>
+	<script type="text/javascript" src="./inc/Ch22.js"></script>
+	<script type="text/javascript" src="./inc/Ch23.js"></script>
+	<script type="text/javascript" src="./inc/Ch33.js"></script>
+	
 	<link rel="stylesheet" type="text/css" href="./inc/style.css">
 	<link rel="stylesheet" type="text/css" href="./inc/font-awesome-4.3.0/css/font-awesome.min.css">
     </head>
     <body>
       <form id="controls">
-	  <div class="text">Sigma XX<br /><input id="rangeUserSigXX" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigXX" class="displayValue" type="text" size="5" value="1.000"> <div id="movieSigXX" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div><br /></div><br />
-	  <div class="text">Sigma YY<br /><input id="rangeUserSigYY" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigYY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigYY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div><br />
-	  <div class="text">Sigma XY<br /><input id="rangeUserSigXY" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigXY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigXY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div><br />
+	  <div class="text">Sigma XX<br /><input id="rangeUserSigXX" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigXX" class="displayValue" type="text" size="5" value="1.000"> <div id="movieSigXX" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div>
+	  <div class="text">Sigma YY<br /><input id="rangeUserSigYY" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigYY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigYY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div>
+	  <div class="text">Sigma XY<br /><input id="rangeUserSigXY" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigXY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigXY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div>
 	  <div id="userSubmit" class="click btn" >Submit Stress Values</div><br /><br />
-      </form>
-      <!--<div id="debugResult">Debug :</div> -->
 
-      <div>
-	  <table class="MicroCell">
-	      <tr>
-		  <td></td>
-		  <td></td>
-		  <td><img id="arrow-sigyy-up"></td>
-		  <td></td>
-		  <td></td>
-	      </tr>
-	      <tr>
-		  <td></td>
-		  <td></td>
-		  <td><img id="arrow-sigxy-right"></td>
-		  <td></td>
-		  <td></td>
-	      </tr>
-	      <tr>
-		  <td class="BS"><img id="arrow-sigxx-left"></td>
-		  <td class="BS"><img id="arrow-sigxy-down"></td>
-		  <td class="BB"><img id="imgMicroCell" src="img/20.png"></td>
-		  <td class="BS"><img id="arrow-sigxy-up"></td>
-		  <td class="BS"><img id="arrow-sigxx-right"></td>
-	      </tr>
-	      <tr>
-		  <td></td>
-		  <td></td>
-		  <td><img id="arrow-sigxy-left"></td>
-		  <td></td>
-		  <td></td>
-	      </tr>
-	      <tr>
-		  <td></td>
-		  <td></td>
-		  <td><img id="arrow-sigyy-down"></td>
-		  <td></td>
-		  <td></td>
-	      </tr>
-	  </table>
+      </form>
+
+      <div id="output">	  
+	  <div id="divMicroCell">
+	      <table id="tblMicroCell">
+		  <tr>
+		      <td></td>
+		      <td></td>
+		      <td><img id="arrow-sigyy-up"></td>
+		      <td></td>
+		      <td></td>
+		  </tr>
+		  <tr>
+		      <td></td>
+		      <td></td>
+		      <td><img id="arrow-sigxy-right"></td>
+		      <td></td>
+		      <td></td>
+		  </tr>
+		  <tr>
+		      <td class="BS"><img id="arrow-sigxx-left"></td>
+		      <td class="BS"><img id="arrow-sigxy-down"></td>
+		      <td class="BB"><img id="imgMicroCell" src="img/20.png"></td>
+		      <td class="BS"><img id="arrow-sigxy-up"></td>
+		      <td class="BS"><img id="arrow-sigxx-right"></td>
+		  </tr>
+		  <tr>
+		      <td></td>
+		      <td></td>
+		      <td><img id="arrow-sigxy-left"></td>
+		      <td></td>
+		      <td></td>
+		  </tr>
+		  <tr>
+		      <td></td>
+		      <td></td>
+		      <td><img id="arrow-sigyy-down"></td>
+		      <td></td>
+		      <td></td>
+		  </tr>
+	      </table>
+	  </div>
+
+	  <div id="divConstTensor">
+	      <table id="tblConstTensor">
+		  <tr>
+		      <td colspan="3">Constitutive tensor</td>
+		  </tr>
+		  <tr>
+		      <td class="tensor CompAA">11</td>
+		      <td class="tensor CompAB">12</td>
+		      <td class="tensor CompAC">13</td>
+		  </tr>
+		  <tr>
+		      <td class="tensor CompAB">21</td>
+		      <td class="tensor CompBB">22</td>
+		      <td class="tensor CompBC">23</td>
+		  </tr>
+		  <tr>
+		      <td class="tensor CompAC">31</td>
+		      <td class="tensor CompBC">32</td>
+		      <td class="tensor CompCC">33</td>
+		  </tr>
+	      </table>     
+	  </div>
+	  
       </div>
-       
     </body>
 </html>
+
+
+
+   
+
+
+      

@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var sigXX = 1;
-    var sigYY = 0.2;
-    var sigXY = 0.3;
+    var sigYY = 1;
+    var sigXY = 0;
     display_from_submit(sigXX, sigYY, sigXY);
     
     $(".rangeUser").change(function(){
@@ -66,6 +66,7 @@ function display_from_submit(sigXX, sigYY, sigXY) {
 	var distTmp=math.norm([ dbXXNorm-sigXXNorm, dbYYNorm-sigYYNorm, dbXYNorm-sigXYNorm], 2);
 	if(dist>distTmp) { dist=distTmp; imin=i; imin_str = i+1; }
     }
+    // GET tensor values    
     //$("#debugResult").append('----> #'+ imin +' (' + dist + ') <----<br/>');
     //$("#debugResult").append(sigmaXX[imin] + ' for ' + sigXXNorm + '<br/>');
     //$("#debugResult").append(sigmaYY[imin] + ' for ' + sigYYNorm + '<br/>');
@@ -76,12 +77,20 @@ function display_from_submit(sigXX, sigYY, sigXY) {
     //$("#displaySigXX").val(sigmaXX[imin].toFixed(3));
     //$("#displaySigYY").val(sigmaYY[imin].toFixed(3));
     //$("#displaySigXY").val(sigmaXY[imin].toFixed(3));
-    $("#displaySigXX").val(sigXX.toFixed(3));
-    $("#displaySigYY").val(sigYY.toFixed(3));
-    $("#displaySigXY").val(sigXY.toFixed(3));
+    $("#displaySigXX").val(sigXX.toFixed(2));
+    $("#displaySigYY").val(sigYY.toFixed(2));
+    $("#displaySigXY").val(sigXY.toFixed(2));
     $("#imgMicroCell").attr('src', './img/'+imin_str+'.png');
 
-    var arrowSize=200;
+    $(".CompAA").text(Ch11[imin].toFixed(2));
+    $(".CompAB").text(Ch12[imin].toFixed(2));
+    $(".CompAC").text(Ch13[imin].toFixed(2));
+    $(".CompBB").text(Ch22[imin].toFixed(2));
+    $(".CompBC").text(Ch23[imin].toFixed(2));
+    $(".CompCC").text(Ch33[imin].toFixed(2));
+    
+    
+    var arrowSize=100;
     
     if(sigXX<0) {
 	$("#arrow-sigxx-right").attr('src', './inc/arrow-left.png');
