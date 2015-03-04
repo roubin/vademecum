@@ -20,71 +20,78 @@
 	<link rel="stylesheet" type="text/css" href="./inc/font-awesome-4.3.0/css/font-awesome.min.css">
     </head>
     <body>
-      <form id="controls">
-	  <div class="text">Sigma XX<br /><input id="rangeUserSigXX" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigXX" class="displayValue" type="text" size="5" value="1.000"> <div id="movieSigXX" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div>
-	  <div class="text">Sigma YY<br /><input id="rangeUserSigYY" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigYY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigYY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div>
-	  <div class="text">Sigma XY<br /><input id="rangeUserSigXY" class="rangeUser" type="range" min="-1" max="1" step="0.01"><br /><input id="displaySigXY" class="displayValue" type="text" size="5" value="0.000"> <div id="movieSigXY" class="click btn"><i class="fa fa-play"></i></div> <div class="pauseMovie click btn"><i class="fa fa-pause"></i></div></div>
-	  <div id="userSubmit" class="click btn" >Submit Stress Values</div><br /><br />
+	<!-- control panel -->
+	<form id="controls">
+	    
+	    <!-- sigma XX -->
+	    <div class="soft subcontrol">
+		<span class="text">Sigma XX</span><br />
+		<input id="rangeUserSigXX" class="rangeUser"    type="range" min="-1" max="1" step="0.01"><br />
+		<input id="displaySigXX"   class="displayValue solid btn text" type="text"  size="5" value="1.000">
+		<div id="movieSigXX" class="solid click btn"> <i class="fa fa-play"></i></div>
+		<div class="pauseMovie solid click btn"><i class="fa fa-pause"></i></div>
+	    </div>
+	    
+	    <!-- sigma YY -->
+	    <div class="soft subcontrol">
+		<span class="text">Sigma YY</span><br />
+		<input id="rangeUserSigYY" class="rangeUser"    type="range" min="-1" max="1" step="0.01"><br />
+		<input id="displaySigYY"   class="displayValue solid btn text" type="text"  size="5" value="1.000">
+		<div id="movieSigYY" class="solid click btn"> <i class="fa fa-play"></i></div>
+		<div class="pauseMovie solid click btn"><i class="fa fa-pause"></i></div>
+	    </div>
+
+	    <!-- sigma XY -->
+	    <div class="soft subcontrol">
+		<span class="text">Sigma XY</span><br />
+		<input id="rangeUserSigXY" class="rangeUser"    type="range" min="-1" max="1" step="0.01"><br />
+		<input id="displaySigXY"   class="displayValue solid btn text" type="text"  size="5" value="1.000">
+		<div id="movieSigXY" class="solid click btn"> <i class="fa fa-play"></i></div>
+		<div class="pauseMovie solid click btn"><i class="fa fa-pause"></i></div>
+	    </div>
+	    <br />
+	    <p><span id="userSubmit" class="click solid text btn" >Submit Stress Values</span></p>
 
       </form>
 
       <div id="output">	  
 	  <div id="divMicroCell">
 	      <table id="tblMicroCell">
-		  <tr>
-		      <td></td>
-		      <td></td>
-		      <td><img id="arrow-sigyy-up"></td>
-		      <td></td>
-		      <td></td>
-		  </tr>
-		  <tr>
-		      <td></td>
-		      <td></td>
-		      <td><img id="arrow-sigxy-right"></td>
-		      <td></td>
-		      <td></td>
-		  </tr>
-		  <tr>
-		      <td class="BS"><img id="arrow-sigxx-left"></td>
+		  <tr><td></td><td></td><td><img id="arrow-sigyy-up"></td><td></td><td></td></tr>
+		  <tr><td></td><td></td><td><img id="arrow-sigxy-right"></td><td></td><td></td></tr>
+		  <tr><td class="BS"><img id="arrow-sigxx-left"></td>
 		      <td class="BS"><img id="arrow-sigxy-down"></td>
 		      <td class="BB"><img id="imgMicroCell" src="img/20.png"></td>
 		      <td class="BS"><img id="arrow-sigxy-up"></td>
-		      <td class="BS"><img id="arrow-sigxx-right"></td>
-		  </tr>
-		  <tr>
-		      <td></td>
-		      <td></td>
-		      <td><img id="arrow-sigxy-left"></td>
-		      <td></td>
-		      <td></td>
-		  </tr>
-		  <tr>
-		      <td></td>
-		      <td></td>
-		      <td><img id="arrow-sigyy-down"></td>
-		      <td></td>
-		      <td></td>
-		  </tr>
+		      <td class="BS"><img id="arrow-sigxx-right"></td></tr>
+		  <tr><td></td><td></td><td><img id="arrow-sigxy-left"></td><td></td><td></td></tr>
+		  <tr><td></td><td></td><td><img id="arrow-sigyy-down"></td><td></td><td></td></tr>
 	      </table>
 	  </div>
-
+	  
 	  <div id="divConstTensor">
-	      <table id="tblConstTensor">
+	      <table id="tblConstTensor" class="soft">
+		  <tr><td colspan="4"><div id="userSubmit" class="solid text btn" >Homogeneised Elastic Moduli</div></td></tr>
 		  <tr>
-		      <td colspan="3"><div id="userSubmit" class="btn" >Homogeneised Elastic Moduli</div></td>
+		      <td class=""></td>
+		      <td class="shadow">XX</td>
+		      <td class="shadow">YY</td>
+		      <td class="shadow">XY</td>
 		  </tr>
 		  <tr>
-		      <td id="CompAA" class="tensor CompAA">11</td>
-		      <td id="CompAB" class="tensor CompAB">12</td>
-		      <td id="CompAC" class="tensor CompAC">13</td>
+		      <td class="shadow">XX</td>
+		      <td id="CompAA" class="tensor CompAA"></td>
+		      <td id="CompAB" class="tensor CompAB"></td>
+		      <td id="CompAC" class="tensor CompAC"></td>
 		  </tr>
 		  <tr>
+		      <td class="shadow">YY</td>
 		      <td class="tensor CompAB">21</td>
 		      <td id="CompBB" class="tensor CompBB">22</td>
 		      <td id="CompBC" class="tensor CompBC">23</td>
 		  </tr>
 		  <tr>
+		      <td class="shadow">XY</td>
 		      <td class="tensor CompAC">31</td>
 		      <td class="tensor CompBC">32</td>
 		      <td id="CompCC" class="tensor CompCC">33</td>
