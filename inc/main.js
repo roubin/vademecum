@@ -41,8 +41,7 @@ $(document).ready(function(){
 	var sigYY = math.number($("#displaySigYY").val());
 	var sigXX = math.number($("#displaySigXX").val());
 	display_movie(sigXX, sigYY, sigXY, 2);
-    });
-        
+    });        
 });
 
 
@@ -82,13 +81,21 @@ function display_from_submit(sigXX, sigYY, sigXY) {
     $("#displaySigXY").val(sigXY.toFixed(2));
     $("#imgMicroCell").attr('src', './img/'+imin_str+'.png');
 
-    $(".CompAA").text(Ch11[imin].toFixed(2));
-    $(".CompAB").text(Ch12[imin].toFixed(2));
-    $(".CompAC").text(Ch13[imin].toFixed(2));
-    $(".CompBB").text(Ch22[imin].toFixed(2));
-    $(".CompBC").text(Ch23[imin].toFixed(2));
-    $(".CompCC").text(Ch33[imin].toFixed(2));
-    
+    var tolE=0.01;
+    var oldCh11 = math.number($("#CompAA").text()); var newCh11 = math.number(Ch11[imin]); $(".CompAA").text(newCh11.toFixed(2));
+    var oldCh12 = math.number($("#CompAB").text()); var newCh12 = math.number(Ch12[imin]); $(".CompAB").text(newCh12.toFixed(2));
+    var oldCh13 = math.number($("#CompAC").text()); var newCh13 = math.number(Ch13[imin]); $(".CompAC").text(newCh13.toFixed(2));
+    var oldCh22 = math.number($("#CompBB").text()); var newCh22 = math.number(Ch22[imin]); $(".CompBB").text(newCh22.toFixed(2));
+    var oldCh23 = math.number($("#CompBC").text()); var newCh23 = math.number(Ch23[imin]); $(".CompBC").text(newCh23.toFixed(2));
+    var oldCh33 = math.number($("#CompCC").text()); var newCh33 = math.number(Ch33[imin]); $(".CompCC").text(newCh33.toFixed(2));
+    if(math.norm(oldCh11-newCh11)/math.norm(newCh11)>tolE) { $('.CompAA').addClass('flash'); }
+    if(math.norm(oldCh12-newCh12)/math.norm(newCh12)>tolE) { $('.CompAB').addClass('flash'); }
+    if(math.norm(oldCh13-newCh13)/math.norm(newCh13)>tolE) { $('.CompAC').addClass('flash'); }
+    if(math.norm(oldCh22-newCh22)/math.norm(newCh22)>tolE) { $('.CompBB').addClass('flash'); }
+    if(math.norm(oldCh23-newCh23)/math.norm(newCh23)>tolE) { $('.CompBC').addClass('flash'); }
+    if(math.norm(oldCh33-newCh33)/math.norm(newCh33)>tolE) { $('.CompCC').addClass('flash'); }    
+
+    setTimeout(function() { $('.tensor').removeClass('flash') }, 5000)
     
     var arrowSize=100;
     
@@ -155,5 +162,5 @@ function display_movie(sigXX, sigYY, sigXY, comp) {
 	$(".pauseMovie").click(function() {
 	    clearInterval(timerMovie);
 	});
-    }, 1000);
+    }, 1500);
 };

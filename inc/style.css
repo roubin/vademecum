@@ -144,3 +144,10 @@ input[type="range"] {
     border-bottom-width: 3px;
 }
 
+
+td.flash {
+    font-weight:bold;
+    color:#fff;
+    border-radius: 5px;
+    background-color: #AAA;
+}
